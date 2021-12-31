@@ -1,0 +1,25 @@
+package practice_example15;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+public class example01_c {
+
+	public static void main(String[] args) {
+		BufferedWriter out = null;
+		Socket socket = null;
+		Scanner scanner = new Scanner(System.in);
+		try {
+			socket = new Socket("localhost", 9999);
+			out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+			while(true){
+				System.out.println("보내기>>");
+				String outputMessage = scanner.nextLine();
+				if(outputMessage.equals("끝")) {
+					out.write(outputMessage+""\n");
+				}
+			}
+		}
+
+	}
+
+}
